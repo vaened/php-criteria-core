@@ -1,0 +1,31 @@
+{
+  "name": "vaened/php-criteria-core",
+  "description": "Core functionality to implement criteria pattern using php",
+  "keywords": [
+    "criteria",
+    "vaened",
+    "enea"
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Vaened\\CriteriaCore\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Vaened\\CriteriaCore\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Enea Dhack",
+      "email": "enea.so@live.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "lambdish/phunctional": "^2.1",
+    "vaened/support": "^0.2.0"
+  }
+}
