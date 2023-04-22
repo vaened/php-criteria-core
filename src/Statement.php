@@ -20,7 +20,7 @@ final class Statement implements Filter
     ) {
     }
 
-    public function that(string $fieldName, FilterOperator $operator, mixed $value): self
+    public static function that(string $fieldName, FilterOperator $operator, mixed $value): self
     {
         return new self(new FilterField($fieldName), $operator, new FilterValue($value));
     }
