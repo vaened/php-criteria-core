@@ -16,24 +16,26 @@ final class Criteria
 {
     private readonly Order $order;
 
+    private Scopes $scopes;
+
     public function __construct(
-        private readonly Scopes $scopes,
-        ?Order                  $order = null,
-        private readonly ?int   $limit = null,
-        private readonly ?int   $offset = null,
-    )
-    {
-        $this->order = $order ?: Order::none();
+        array                 $criterias,
+        ?Order                $order = null,
+        private readonly ?int $limit = null,
+        private readonly ?int $offset = null,
+    ) {
+        $this->scopes = CriteriaPurifier::clean($criterias);
+        $this->order  = $order ?: Order::none();
     }
 
-    public static function fromArray(array $scopes, Order $order = null): self
+    public static function fromArray(array $criterias, Order $order = null): self
     {
-        return self::create(Scopes::from($scopes), $order);
+        return self::create($criterias, $order);
     }
 
-    public static function create(Scopes $scopes, Order $order = null, ?int $limit = null): self
+    public static function create(array $criterias, Order $order = null, ?int $limit = null): self
     {
-        return new self($scopes, $order, $limit);
+        return new self($criterias, $order, $limit);
     }
 
     public function add(Scope $scope): void
