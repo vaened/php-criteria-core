@@ -15,6 +15,11 @@ final class Statements implements Expression
     {
     }
 
+    public static function of(array $filters): self
+    {
+        return new self(Filters::from($filters));
+    }
+
     public function filters(): Filters
     {
         return $this->filters;
