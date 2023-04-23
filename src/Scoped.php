@@ -11,13 +11,13 @@ use Vaened\CriteriaCore\Directives\Scope;
 
 class Scoped implements Scope
 {
-    public function __construct(private readonly string $relationName, private readonly Expressions $expressions)
+    public function __construct(private readonly string $name, private readonly Expressions $expressions)
     {
     }
 
-    public static function of(string $relationName, array $expressions): static
+    public static function of(string $name, array $expressions): static
     {
-        return new static($relationName, Expressions::from($expressions));
+        return new static($name, Expressions::from($expressions));
     }
 
     final public function isLocal(): bool
@@ -27,7 +27,7 @@ class Scoped implements Scope
 
     public function name(): string
     {
-        return $this->relationName;
+        return $this->name;
     }
 
     public function expressions(): Expressions
