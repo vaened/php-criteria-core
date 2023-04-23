@@ -1,4 +1,0 @@
-parameters:
-    bootstrap: %currentWorkingDirectory%/vendor/autoload.php
-    ignoreErrors:
-        - '#get_class expects object, callable given#'
