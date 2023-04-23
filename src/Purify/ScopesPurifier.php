@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore\Purify;
 
-use Vaened\CriteriaCore\Expression;
-use Vaened\CriteriaCore\Filter;
+use Vaened\CriteriaCore\Directives\Expression;
+use Vaened\CriteriaCore\Directives\Filter;
+use Vaened\CriteriaCore\Directives\Scope;
 use Vaened\CriteriaCore\LocalScope;
-use Vaened\CriteriaCore\Scope;
 use Vaened\CriteriaCore\Scoped;
 use Vaened\CriteriaCore\Scopes;
 use Vaened\Support\Types\ArrayList;

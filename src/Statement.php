@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore;
 
+use Vaened\CriteriaCore\Directives\Filter;
 use Vaened\CriteriaCore\Keyword\FilterField;
 use Vaened\CriteriaCore\Keyword\FilterOperator;
 use Vaened\CriteriaCore\Keyword\FilterValue;

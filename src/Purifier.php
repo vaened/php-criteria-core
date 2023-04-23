@@ -11,7 +11,7 @@ use Vaened\CriteriaCore\Purify\ExpressionsPurifier;
 use Vaened\CriteriaCore\Purify\FilterPurifier;
 use Vaened\CriteriaCore\Purify\ScopesPurifier;
 
-final class CriteriaPurifier
+final class Purifier
 {
     public static function clean(array $criterias): Scopes
     {
@@ -24,7 +24,7 @@ final class CriteriaPurifier
         $filters     = $filtersPurifier->extract($criterias);
 
         if (!$filters->isEmpty()) {
-            $expressions->push(new Concept($filters));
+            $expressions->push(new Statements($filters));
         }
 
         if (!$expressions->isEmpty()) {

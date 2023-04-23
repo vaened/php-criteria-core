@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore;
 
+use Vaened\CriteriaCore\Directives\Scope;
 use Vaened\CriteriaCore\Keyword\Order;
 
 use function count;
@@ -24,7 +25,7 @@ final class Criteria
         private readonly ?int $limit = null,
         private readonly ?int $offset = null,
     ) {
-        $this->scopes = CriteriaPurifier::clean($criterias);
+        $this->scopes = Purifier::clean($criterias);
         $this->order  = $order ?: Order::none();
     }
 

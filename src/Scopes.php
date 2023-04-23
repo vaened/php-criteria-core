@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Vaened\CriteriaCore;
 
 
+use Vaened\CriteriaCore\Directives\Scope;
 use Vaened\Support\Types\ArrayObject;
 
 /**

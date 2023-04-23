@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore;
 
+use Vaened\CriteriaCore\Directives\Scope;
+
 class Scoped implements Scope
 {
     public function __construct(private readonly string $relationName, private readonly Expressions $expressions)

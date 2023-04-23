@@ -7,7 +7,9 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore;
 
-final class Concept implements Expression
+use Vaened\CriteriaCore\Directives\Expression;
+
+final class Statements implements Expression
 {
     public function __construct(private readonly Filters $filters)
     {

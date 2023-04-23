@@ -7,11 +7,11 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore\Purify;
 
-use Vaened\CriteriaCore\Concept;
-use Vaened\CriteriaCore\Expression;
+use Vaened\CriteriaCore\Directives\Expression;
+use Vaened\CriteriaCore\Directives\Filter;
+use Vaened\CriteriaCore\Directives\Scope;
 use Vaened\CriteriaCore\Expressions;
-use Vaened\CriteriaCore\Filter;
-use Vaened\CriteriaCore\Scope;
+use Vaened\CriteriaCore\Statements;
 use Vaened\Support\Types\ArrayList;
 
 final class ExpressionsPurifier
@@ -36,7 +36,9 @@ final class ExpressionsPurifier
         return fn(
             Expression $expression
         ) => $expression->filters()->some($this->anyRepeat()) ?
-            new Concept($expression->filters()->filter($this->filterPurifier->notRepeated())) :
+            new Statements(
+                $expression->filters()->filter($this->filterPurifier->notRepeated())
+            ) :
             $expression;
     }
 

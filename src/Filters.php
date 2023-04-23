@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore;
 
+use Vaened\CriteriaCore\Directives\Filter;
 use Vaened\Support\Types\ArrayObject;
 
 /**

@@ -5,7 +5,9 @@
 
 declare(strict_types=1);
 
-namespace Vaened\CriteriaCore;
+namespace Vaened\CriteriaCore\Directives;
+
+use Vaened\CriteriaCore\Filters;
 
 interface Expression
 {

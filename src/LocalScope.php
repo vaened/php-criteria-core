@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore;
 
+use Vaened\CriteriaCore\Directives\Scope;
+
 final class LocalScope implements Scope
 {
     public function __construct(private readonly Expressions $expressions)
