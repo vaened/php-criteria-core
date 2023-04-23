@@ -11,7 +11,6 @@ use Vaened\CriteriaCore\Directives\Expression;
 use Vaened\CriteriaCore\Directives\Filter;
 use Vaened\CriteriaCore\Directives\Scope;
 use Vaened\CriteriaCore\Filters;
-use Vaened\CriteriaCore\ValueStringify;
 use Vaened\Support\Types\ArrayList;
 
 use function in_array;

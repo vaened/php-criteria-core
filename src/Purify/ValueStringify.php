@@ -5,7 +5,7 @@
 
 declare(strict_types=1);
 
-namespace Vaened\CriteriaCore;
+namespace Vaened\CriteriaCore\Purify;
 
 use Vaened\CriteriaCore\Keyword\FilterValue;
 
