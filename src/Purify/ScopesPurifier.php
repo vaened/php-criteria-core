@@ -28,7 +28,6 @@ final class ScopesPurifier
             ArrayList::from($criterias)
                 ->filter($this->onlyScopes())
                 ->map($this->cleanDuplicatesOfScopes())
-                ->filter($this->notEmpty())
                 ->values()
         );
     }
@@ -52,11 +51,6 @@ final class ScopesPurifier
                 LocalScope::includes($expressions) :
                 Scoped::of($scope->name(), $expressions);
         };
-    }
-
-    private function notEmpty(): callable
-    {
-        return static fn(Scope $scope) => !$scope->expressions()->isEmpty();
     }
 
     private function onlyScopes(): callable
