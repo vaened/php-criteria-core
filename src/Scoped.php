@@ -20,6 +20,11 @@ class Scoped implements Scope
         return new static($name, Expressions::from($expressions));
     }
 
+    public static function as(string $name): static
+    {
+        return new static($name, Expressions::empty());
+    }
+
     final public function isLocal(): bool
     {
         return false;
