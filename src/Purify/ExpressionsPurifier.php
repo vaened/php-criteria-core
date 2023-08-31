@@ -23,7 +23,7 @@ final class ExpressionsPurifier
     public function extract(array $criterias): Expressions
     {
         return Expressions::from(
-            ArrayList::from($criterias)
+            (new ArrayList($criterias))
                 ->filter($this->onlyExpressions())
                 ->map($this->cleanDuplicatesOfExpressions())
                 ->filter($this->notEmpty())

@@ -8,22 +8,21 @@ declare(strict_types=1);
 namespace Vaened\CriteriaCore;
 
 use Vaened\CriteriaCore\Directives\Expression;
-use Vaened\Support\Types\ArrayObject;
+use Vaened\Support\Types\SecureList;
 
-/**
- * Class Expressions
- *
- * @package Components\Criteria
- * @extends ArrayObject<int, Expression>
- */
-final class Expressions extends ArrayObject
+final class Expressions extends SecureList
 {
+    public static function from(iterable $scopes): self
+    {
+        return new self($scopes);
+    }
+
     public function push(Expression $expression): void
     {
         $this->items[] = $expression;
     }
 
-    protected function type(): string
+    protected static function type(): string
     {
         return Expression::class;
     }

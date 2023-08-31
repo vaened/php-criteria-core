@@ -7,16 +7,17 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore;
 
-
 use Vaened\CriteriaCore\Directives\Scope;
-use Vaened\Support\Types\ArrayObject;
+use Vaened\Support\Types\SecureList;
 
-/**
- * @extends ArrayObject<int, Scope>
- */
-final class Scopes extends ArrayObject
+final class Scopes extends SecureList
 {
-    protected function type(): string
+    public static function from(iterable $scopes): self
+    {
+        return new self($scopes);
+    }
+
+    protected static function type(): string
     {
         return Scope::class;
     }

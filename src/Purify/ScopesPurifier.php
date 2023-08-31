@@ -19,13 +19,14 @@ final class ScopesPurifier
 {
     public function __construct(
         private readonly ExpressionsPurifier $expressionsPurifier,
-    ) {
+    )
+    {
     }
 
     public function extract(array $criterias): Scopes
     {
         return Scopes::from(
-            ArrayList::from($criterias)
+            (new ArrayList($criterias))
                 ->filter($this->onlyScopes())
                 ->map($this->cleanDuplicatesOfScopes())
                 ->values()
@@ -36,10 +37,10 @@ final class ScopesPurifier
     {
         return function (Scope $scope): Scope {
             $repeat = $scope->expressions()
-                ->some(
-                    fn(Expression $expression) => $expression->filters()
-                        ->some($this->expressionsPurifier->anyRepeat())
-                );
+                            ->some(
+                                fn(Expression $expression) => $expression->filters()
+                                                                         ->some($this->expressionsPurifier->anyRepeat())
+                            );
 
             if (!$repeat) {
                 return $scope;

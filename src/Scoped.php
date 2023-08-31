@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Vaened\CriteriaCore;
 
 use Vaened\CriteriaCore\Directives\Scope;
+use Vaened\Support\Types\AbstractList;
 
 class Scoped implements Scope
 {
@@ -15,14 +16,14 @@ class Scoped implements Scope
     {
     }
 
-    public static function of(string $name, array $expressions): static
+    public static function of(string $name, iterable $expressions): static
     {
         return new static($name, Expressions::from($expressions));
     }
 
     public static function as(string $name): static
     {
-        return new static($name, Expressions::empty());
+        return new static($name, new Expressions(AbstractList::Empty));
     }
 
     final public function isLocal(): bool

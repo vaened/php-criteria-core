@@ -15,7 +15,7 @@ final class LocalScope implements Scope
     {
     }
 
-    public static function includes(array $expressions): self
+    public static function includes(iterable $expressions): self
     {
         return new self(Expressions::from($expressions));
     }

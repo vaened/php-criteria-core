@@ -8,17 +8,16 @@ declare(strict_types=1);
 namespace Vaened\CriteriaCore;
 
 use Vaened\CriteriaCore\Directives\Filter;
-use Vaened\Support\Types\ArrayObject;
+use Vaened\Support\Types\SecureList;
 
-/**
- * Class Filters
- *
- * @package Components\Criteria
- * @extends ArrayObject<int, Filter>
- */
-final class Filters extends ArrayObject
+final class Filters extends SecureList
 {
-    protected function type(): string
+    public static function from(iterable $scopes): self
+    {
+        return new self($scopes);
+    }
+
+    protected static function type(): string
     {
         return Filter::class;
     }

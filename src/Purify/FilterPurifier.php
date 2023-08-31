@@ -27,7 +27,7 @@ final class FilterPurifier
     public function extract(array $criterias): Filters
     {
         return Filters::from(
-            ArrayList::from($criterias)
+            (new ArrayList($criterias))
                 ->filter($this->onlyFilters())
                 ->filter($this->notRepeated())
                 ->values()
