@@ -22,7 +22,7 @@ final class Expressions extends SecureList
         $this->items[] = $expression;
     }
 
-    protected static function type(): string
+    public static function type(): string
     {
         return Expression::class;
     }

@@ -17,7 +17,7 @@ final class Filters extends SecureList
         return new self($scopes);
     }
 
-    protected static function type(): string
+    public static function type(): string
     {
         return Filter::class;
     }
