@@ -25,7 +25,7 @@ final class Expressions extends SecureList
         parent::__construct(
             array_merge(
                 $expressions,
-                count($filters) > 1 ? Statements::of($filters) : []
+                count($filters) > 0 ? [Statements::of($filters)] : []
             )
         );
     }
