@@ -10,22 +10,23 @@ namespace Vaened\CriteriaCore;
 
 use Vaened\CriteriaCore\Directives\Expression;
 use Vaened\CriteriaCore\Directives\Filter;
+use Vaened\CriteriaCore\Directives\Predicate;
 use Vaened\CriteriaCore\Directives\Scope;
 
-class Predicate
+final class Batch implements Predicate
 {
     public function __construct(private readonly array $criterias)
     {
     }
 
-    public static function group(Filter|Expression|Scope|self ...$criterias): static
+    public static function group(Filter|Expression|Scope|Predicate ...$criterias): self
     {
-        return new static($criterias);
+        return new self($criterias);
     }
 
-    public static function from(array $criterias): static
+    public static function from(array $criterias): self
     {
-        return new static($criterias);
+        return new self($criterias);
     }
 
     public function criterias(): array

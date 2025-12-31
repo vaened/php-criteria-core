@@ -7,8 +7,8 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore\Tests;
 
+use Vaened\CriteriaCore\Batch;
 use Vaened\CriteriaCore\LocalScope;
-use Vaened\CriteriaCore\Predicate;
 use Vaened\CriteriaCore\Purifier;
 use Vaened\CriteriaCore\Scoped;
 use Vaened\CriteriaCore\Scopes;
@@ -50,7 +50,7 @@ final class CriteriaPurifierTest extends TestCase
                 $personDocumentNumberEquals,
                 $personDocumentTypeEquals,
 
-                Predicate::group(
+                Batch::group(
                     $personIdentificationAre,
 
                     Scoped::of('company', [

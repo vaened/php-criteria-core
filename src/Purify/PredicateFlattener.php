@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Vaened\CriteriaCore\Purify;
 
-use Vaened\CriteriaCore\Predicate;
+use Vaened\CriteriaCore\Directives\Predicate;
 
 final class PredicateFlattener
 {
