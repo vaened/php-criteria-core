@@ -9,12 +9,14 @@ namespace Vaened\CriteriaCore;
 
 use Vaened\CriteriaCore\Purify\ExpressionsPurifier;
 use Vaened\CriteriaCore\Purify\FilterPurifier;
+use Vaened\CriteriaCore\Purify\PredicateFlattener;
 use Vaened\CriteriaCore\Purify\ScopesPurifier;
 
 final class Purifier
 {
     public static function clean(array $criterias): Scopes
     {
+        $criterias           = PredicateFlattener::unpack($criterias);
         $filtersPurifier     = new FilterPurifier();
         $expressionsPurifier = new ExpressionsPurifier($filtersPurifier);
         $scopesPurifier      = new ScopesPurifier($expressionsPurifier);
